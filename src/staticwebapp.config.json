@@ -2,7 +2,7 @@
     "$schema": "https://json.schemastore.org/staticwebapp.config.json",
     "routes": [
         {
-            "route": "/*",
+            "route": "/",
             "allowedRoles": ["authenticated"]
         },
         {

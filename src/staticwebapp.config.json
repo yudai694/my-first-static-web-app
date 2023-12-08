@@ -1,9 +1,23 @@
 {
     "$schema": "https://json.schemastore.org/staticwebapp.config.json",
+    "networking": {
+        "allowedIpRanges": ["AzureFrontDoor.Backend"]
+    },
+    "forwardingGateway": {
+        "requiredHeaders": {
+          "X-Azure-FDID" : "454c956d-456c-454f-8869-a55b3eba2761"
+        },
+        "allowedForwardedHosts": [
+          "fd-swa-f9eze7crdgaggyhm.z01.azurefd.net"
+        ]
+    },
     "routes": [
         {
             "route": "/",
-            "allowedRoles": ["authenticated"]
+            "allowedRoles": ["authenticated"],
+            "headers": {
+                "Cache-Control": "no-store"
+            }
         },
         {
             "route": "/login",
